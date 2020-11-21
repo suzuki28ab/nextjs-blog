@@ -1,0 +1,25 @@
+{
+	"name": "next",
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+	],
+	"service": "web",
+	"workspaceFolder": "/app",
+	"settings": {
+		"terminal.integrated.shell.linux": null,
+		"editor.codeActionsOnSave": {"source.fixAll": true},
+		"eslint.validate": [
+			"javascriptreact",
+			"javascript",
+			"typescript",
+			"typescriptreact"
+		]
+	},
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"streetsidesoftware.code-spell-checker",
+		"wraith13.background-phi-colors"
+	],
+	"postCreateCommand": "apk add fish"
+}

@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    build: ./
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - 4500:3000
