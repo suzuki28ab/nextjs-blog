@@ -19,7 +19,8 @@
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"streetsidesoftware.code-spell-checker",
-		"wraith13.background-phi-colors"
+		"wraith13.background-phi-colors",
+		"eamodio.gitlens"
 	],
-	"postCreateCommand": "apk add fish"
+	"postCreateCommand": "apk add fish git"
 }
