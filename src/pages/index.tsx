@@ -21,8 +21,8 @@ export default function Home({ allPostsData }: Props): JSX.Element {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
+        <p className="text-pink-600">[Your Self Introduction]</p>
+        <p className="text-sm my-3">
           (This is a sample website - you’ll be building a site like this in{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
