@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout, { siteTitle } from '../components/layout'
+import Layout, { siteTitle } from '../../components/layout'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import Date from '../components/date'
-import { GetStaticProps } from 'next'
+import { getSortedPostsData } from '../../lib/posts'
+import Date from '../../components/date'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import range from '@/lib/util'
 import Pager from '@/components/Pager'
 
 const COUNT_PER_PAGE = 1
@@ -48,21 +49,21 @@ export default function Home(props: Props): JSX.Element {
             </li>
           ))}
         </ul>
-        <Pager
-          page={props.page}
-          total={props.total}
-          perPage={props.perPage}
-          href="/archive/[page]"
-          asCallback={page => `/archive/${page}`}
-        />
       </section>
+      <Pager
+        page={props.page}
+        total={props.total}
+        perPage={props.perPage}
+        href="/archive/[page]"
+        asCallback={page => `/archive/${page}`}
+      />
     </Layout>
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const page = '0'
-  const pageNumber = 1
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const page = params?.page as string
+  const pageNumber = parseInt(page, 10)
   const end = COUNT_PER_PAGE * pageNumber
   const start = end - COUNT_PER_PAGE
   const allPostsData = getSortedPostsData()
@@ -76,4 +77,14 @@ export const getStaticProps: GetStaticProps = async () => {
       perPage: COUNT_PER_PAGE,
     },
   }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPostsData = getSortedPostsData()
+  const pages = range(Math.ceil(allPostsData.length / COUNT_PER_PAGE))
+  const paths = pages.map(page => ({
+    params: { page: `${page}` },
+  }))
+
+  return { paths: paths, fallback: false }
 }
