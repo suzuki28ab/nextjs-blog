@@ -20,7 +20,8 @@
 		"esbenp.prettier-vscode",
 		"streetsidesoftware.code-spell-checker",
 		"wraith13.background-phi-colors",
-		"eamodio.gitlens"
+		"eamodio.gitlens",
+		"bradlc.vscode-tailwindcss"
 	],
 	"postCreateCommand": "apk add fish git"
 }

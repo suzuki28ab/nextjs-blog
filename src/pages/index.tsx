@@ -52,8 +52,8 @@ export default function Home(props: Props): JSX.Element {
           page={props.page}
           total={props.total}
           perPage={props.perPage}
-          href="/archive/[page]"
-          asCallback={page => `/archive/${page}`}
+          href="/page/[page]"
+          asCallback={page => `/page/${page}`}
         />
       </section>
     </Layout>
@@ -61,7 +61,6 @@ export default function Home(props: Props): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const page = '0'
   const pageNumber = 1
   const end = COUNT_PER_PAGE * pageNumber
   const start = end - COUNT_PER_PAGE
@@ -71,8 +70,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts: posts,
-      page: page,
-      total: posts.length,
+      page: pageNumber,
+      total: allPostsData.length,
       perPage: COUNT_PER_PAGE,
     },
   }

@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout, { siteTitle } from '../../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../../lib/posts'
-import Date from '../../components/date'
+import Layout, { siteTitle } from '@/components/layout'
+import utilStyles from '@/styles/utils.module.css'
+import { getSortedPostsData } from '@/lib/posts'
+import Date from '@/components/date'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import range from '@/lib/util'
 import Pager from '@/components/Pager'
@@ -54,8 +54,8 @@ export default function Home(props: Props): JSX.Element {
         page={props.page}
         total={props.total}
         perPage={props.perPage}
-        href="/archive/[page]"
-        asCallback={page => `/archive/${page}`}
+        href="/page/[page]"
+        asCallback={page => `/page/${page}`}
       />
     </Layout>
   )
@@ -72,8 +72,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       posts: posts,
-      page: page,
-      total: posts.length,
+      page: pageNumber,
+      total: allPostsData.length,
       perPage: COUNT_PER_PAGE,
     },
   }
