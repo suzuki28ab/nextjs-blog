@@ -13,7 +13,8 @@
 			"javascript",
 			"typescript",
 			"typescriptreact"
-		]
+		],
+		"css.validate": false
 	},
 	"extensions": [
 		"dbaeumer.vscode-eslint",
