@@ -15,7 +15,7 @@ type Props = {
     title: string
     id: string
   }[]
-  page: number
+  currentPage: number
   total: number
   perPage: number
 }
@@ -49,7 +49,7 @@ export default function Home(props: Props): JSX.Element {
           ))}
         </ul>
         <Pager
-          page={props.page}
+          currentPage={props.currentPage}
           total={props.total}
           perPage={props.perPage}
           href="/page/[page]"
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       posts: posts,
-      page: pageNumber,
+      currentPage: pageNumber,
       total: allPostsData.length,
       perPage: COUNT_PER_PAGE,
     },

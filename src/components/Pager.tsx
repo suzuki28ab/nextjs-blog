@@ -2,18 +2,18 @@ import Link from 'next/link'
 
 type Props = {
   total: number
-  page: number
+  currentPage: number
   perPage: number
   href: string
   asCallback: (pageNumber: number) => string
 }
 
 const Pager = (props: Props): JSX.Element => {
-  const { total, page, perPage, href, asCallback } = props
-  const prevPage = page > 1 ? page - 1 : null
+  const { total, currentPage, perPage, href, asCallback } = props
+  const prevPage = currentPage > 1 ? currentPage - 1 : null
   let nextPage = null
-  if (page < Math.ceil(total / perPage)) {
-    nextPage = page + 1
+  if (currentPage < Math.ceil(total / perPage)) {
+    nextPage = currentPage + 1
   }
   return (
     <div>
@@ -31,10 +31,13 @@ const Pager = (props: Props): JSX.Element => {
           </span>
         </>
       ) : (
-        ``
+        <>
+          <span className="mx-1">{''}</span>
+          <span className="mx-1">{''}</span>
+        </>
       )}
 
-      <span>{page}</span>
+      <span className="mx-1">{currentPage}</span>
 
       {nextPage ? (
         <>
@@ -50,7 +53,10 @@ const Pager = (props: Props): JSX.Element => {
           </span>
         </>
       ) : (
-        ``
+        <>
+          <span className="mx-1">{''}</span>
+          <span className="mx-1">{''}</span>
+        </>
       )}
     </div>
   )
