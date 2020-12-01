@@ -8,8 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/firebase": "^3.2.1",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
+    "firebase": "^8.1.1",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
     "react": "16.13.1",

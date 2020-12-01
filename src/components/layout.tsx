@@ -1,13 +1,10 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
-import Link from 'next/link'
 import AppBar from './AppBar'
 
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({
   children,
-  home,
 }: {
   children: React.ReactNode
   home?: boolean
@@ -16,6 +13,10 @@ export default function Layout({
     <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+          rel="stylesheet"
+        ></link>
         <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta
           property="og:image"
@@ -27,16 +28,9 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <AppBar></AppBar>
-      <main className="bg-whiteGreen h-screen p-2">
-        <div className="bg-white h-screen max-w-screen-lg mx-auto my-0 p-2">{children}</div>
+      <main className="p-2">
+        <div className="bg-white max-w-screen-lg mx-auto my-0 p-2">{children}</div>
       </main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
     </div>
   )
 }

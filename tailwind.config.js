@@ -7,7 +7,6 @@ module.exports = {
       },
       colors: {
         green: 'rgb(107, 173, 159)',
-        whiteGreen: 'rgb(245, 247, 246)',
       },
     },
   },
