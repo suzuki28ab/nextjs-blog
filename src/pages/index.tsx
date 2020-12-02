@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostsData } from '../lib/posts'
 import { GetStaticProps } from 'next'
@@ -24,7 +23,7 @@ export default function Home(props: Props): JSX.Element {
       </Head>
       <section>
         {props.posts.map(post => (
-          <PostTitle post={post} key={post.title} />
+          <PostTitle post={post} key={post.id} />
         ))}
         <Pager
           currentPage={props.currentPage}

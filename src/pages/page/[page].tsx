@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Layout, { siteTitle } from '@/components/layout'
-import utilStyles from '@/styles/utils.module.css'
 import { getSortedPostsData } from '@/lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import range from '@/lib/util'
@@ -26,7 +24,7 @@ export default function Home(props: Props): JSX.Element {
       </Head>
       <section>
         {props.posts.map(post => (
-          <PostTitle post={post} key={post.title}></PostTitle>
+          <PostTitle post={post} key={post.id}></PostTitle>
         ))}
         <Pager
           currentPage={props.currentPage}

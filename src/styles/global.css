@@ -27,4 +27,38 @@ body {
   @apply bg-green;
 }
 
+article p {
+  margin-bottom: 1.6rem;
+}
+
+article a {
+  text-decoration: underline;
+  color: #1976d2;
+}
+
+article hr {
+  margin: 2rem 0;
+}
+
+article code {
+  font-size: 90%;
+  font-weight: 900;
+  background-color: #fbe5e1;
+  color: #c0341d;
+  padding: 0 0.4rem;
+}
+
+article h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.6rem;
+}
+
+article h4 {
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.6rem;
+}
+
 @tailwind utilities;
