@@ -5,12 +5,22 @@ import { getAllPostIds, getPostData } from '@/lib/posts'
 import { FormattedPostData } from '@/types/post'
 import PostTitle from '@/components/posts/title'
 import ReactMarkdown from 'react-markdown'
+import CodeBlock from '@/components/CodeBlock'
+import { useEffect } from 'react'
 
 type Props = {
   postData: FormattedPostData
 }
 
 export default function Post(props: Props): JSX.Element {
+  useEffect(() => {
+    const aTags = document.getElementsByTagName('a')
+    for (const aTag of Array.from(aTags)) {
+      if (aTag.hostname != location.hostname) {
+        aTag.setAttribute('target', '_blank')
+      }
+    }
+  })
   return (
     <>
       <Layout>
@@ -19,7 +29,7 @@ export default function Post(props: Props): JSX.Element {
         </Head>
         <PostTitle post={props.postData}></PostTitle>
         <article>
-          <ReactMarkdown>{props.postData.content}</ReactMarkdown>
+          <ReactMarkdown renderers={{ code: CodeBlock }}>{props.postData.content}</ReactMarkdown>
         </article>
       </Layout>
     </>

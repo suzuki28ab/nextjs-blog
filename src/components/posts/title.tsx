@@ -4,7 +4,7 @@ import Link from 'next/link'
 const PostTitle = ({ post }: { post: FormattedPostData }): JSX.Element => {
   return (
     <Link href={`/posts/${post.id}`}>
-      <div className="mb-12">
+      <div className="mb-12 cursor-pointer">
         <div>
           <span className="text-xs mr-3">{post.createdAt}</span>
           <span className="text-xs">{post.category}</span>
