@@ -3,23 +3,12 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo,
     'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  background-color: rgb(245, 247, 246);
   line-height: 1.6;
   font-size: 18px;
-  min-height: 100vh;
-  background-color: rgb(245, 247, 246);
   color: rgba(0, 0, 0, 0.87);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  cursor: pointer;
 }
 
 .tag {

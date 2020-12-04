@@ -16,6 +16,7 @@ article pre {
 }
 
 article code {
+  font-family: 'Lato' !important;
   font-size: 90% !important;
   font-weight: 900;
   background-color: #fbe5e1;

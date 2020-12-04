@@ -29,7 +29,7 @@ export default function Layout({
       </Head>
       <AppBar></AppBar>
       <main className="p-2">
-        <div className="bg-white max-w-screen-lg mx-auto my-0 p-2">{children}</div>
+        <div className="lg:w-8/12 bg-white mx-auto my-0 p-2">{children}</div>
       </main>
     </div>
   )
