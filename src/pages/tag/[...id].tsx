@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '@/components/layout'
-import { getSortedPosts } from '@/lib/posts'
+import { getPostsByTagName } from '@/lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { range, sliceForCurrentPage } from '@/lib/util'
 import Pager from '@/components/Pager'
 import PostTitle from '@/components/posts/title'
 import { FormattedPostData } from '@/types/post'
+import { getTagName, tags } from '@/data/tags'
 
 const COUNT_PER_PAGE = 10
 
@@ -14,9 +15,10 @@ type Props = {
   currentPage: number
   total: number
   perPage: number
+  searchWord: string
 }
 
-export default function Home(props: Props): JSX.Element {
+const TagPage = (props: Props): JSX.Element => {
   return (
     <Layout>
       <Head>
@@ -30,36 +32,47 @@ export default function Home(props: Props): JSX.Element {
           currentPage={props.currentPage}
           total={props.total}
           perPage={props.perPage}
-          href="/page/[page]"
-          asCallback={page => `/page/${page}`}
+          href="/tag/[...id]"
+          searchWord={props.searchWord}
+          asCallback={(page, tag) => `/tag/${tag}/${page}`}
         />
       </section>
     </Layout>
   )
 }
 
+export default TagPage
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const page = params?.page as string
+  const [tagId, page] = params?.id as Array<string>
   const pageNumber = parseInt(page, 10)
-  const allPostsData = await getSortedPosts()
-  const posts = sliceForCurrentPage(allPostsData, COUNT_PER_PAGE, pageNumber)
+  const tagPosts = await getPostsByTagName(getTagName(tagId))
+  const posts = sliceForCurrentPage(tagPosts, COUNT_PER_PAGE, pageNumber)
 
   return {
     props: {
       posts: posts,
       currentPage: pageNumber,
-      total: allPostsData.length,
+      total: tagPosts.length,
       perPage: COUNT_PER_PAGE,
+      searchWord: tagId,
     },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPostsData = await getSortedPosts()
-  const pages = range(Math.ceil(allPostsData.length / COUNT_PER_PAGE))
-  const paths = pages.map(page => ({
-    params: { page: `${page}` },
-  }))
+  const result = await Promise.all(
+    tags.map(async tag => {
+      const posts = await getPostsByTagName(tag.name)
+      const pages = range(Math.ceil(posts.length / COUNT_PER_PAGE))
+      const results = pages.map(page => {
+        return { params: { id: [tag.id, String(page)] } }
+      })
+      return results
+    }),
+  )
+
+  const paths = result.flat()
 
   return { paths: paths, fallback: false }
 }

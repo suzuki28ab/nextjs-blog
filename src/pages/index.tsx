@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
+import { getSortedPosts } from '../lib/posts'
 import { GetStaticProps } from 'next'
 import Pager from '@/components/Pager'
 import { FormattedPostData } from '@/types/post'
 import PostTitle from '@/components/posts/title'
+import { sliceForCurrentPage } from '@/lib/util'
 
 const COUNT_PER_PAGE = 10
 
@@ -17,7 +18,7 @@ type Props = {
 
 export default function Home(props: Props): JSX.Element {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -39,10 +40,8 @@ export default function Home(props: Props): JSX.Element {
 
 export const getStaticProps: GetStaticProps = async () => {
   const pageNumber = 1
-  const end = COUNT_PER_PAGE * pageNumber
-  const start = end - COUNT_PER_PAGE
-  const allPostsData = await getSortedPostsData()
-  const posts = allPostsData.slice(start, end)
+  const allPostsData = await getSortedPosts()
+  const posts = sliceForCurrentPage(allPostsData, COUNT_PER_PAGE, pageNumber)
 
   return {
     props: {

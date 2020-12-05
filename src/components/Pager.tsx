@@ -1,4 +1,4 @@
-import range from '@/lib/util'
+import { range } from '@/lib/util'
 import Link from 'next/link'
 import styles from './pager.module.css'
 
@@ -7,7 +7,8 @@ type Props = {
   currentPage: number
   perPage: number
   href: string
-  asCallback: (pageNumber: number) => string
+  searchWord?: string | undefined
+  asCallback: (pageNumber: number, searchWord: string | undefined) => string
 }
 
 const Pager = (props: Props): JSX.Element => {
@@ -22,7 +23,7 @@ const Pager = (props: Props): JSX.Element => {
     <ul className="flex justify-center">
       <li className={styles.pageItem}>
         {prevPage && (
-          <Link href={href} as={asCallback(prevPage)}>
+          <Link href={href} as={asCallback(prevPage, props.searchWord)}>
             <a className={styles.linkHover}>&lt;</a>
           </Link>
         )}
@@ -32,10 +33,12 @@ const Pager = (props: Props): JSX.Element => {
         pageNumber =>
           isMoreThanTwoAway(pageNumber, currentPage) &&
           (pageNumber == currentPage ? (
-            <li className={styles.pageItemActive}>{pageNumber}</li>
+            <li className={styles.pageItemActive} key={pageNumber}>
+              {pageNumber}
+            </li>
           ) : (
-            <li className={styles.pageItem}>
-              <Link href={href} as={asCallback(pageNumber)}>
+            <li className={styles.pageItem} key={pageNumber}>
+              <Link href={href} as={asCallback(pageNumber, props.searchWord)}>
                 <a className={styles.linkHover}>{pageNumber}</a>
               </Link>
             </li>
@@ -44,7 +47,7 @@ const Pager = (props: Props): JSX.Element => {
 
       <li className={styles.pageItem}>
         {nextPage && (
-          <Link href={href} as={asCallback(nextPage)}>
+          <Link href={href} as={asCallback(nextPage, props.searchWord)}>
             <a className={styles.linkHover}>&gt;</a>
           </Link>
         )}

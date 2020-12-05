@@ -1,7 +1,7 @@
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { getAllPostIds, getPostData } from '@/lib/posts'
+import { getAllPostIds, getPostById } from '@/lib/posts'
 import { FormattedPostData } from '@/types/post'
 import PostTitle from '@/components/posts/title'
 import ReactMarkdown from 'react-markdown'
@@ -45,7 +45,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params?.id as string)
+  const postData = await getPostById(params?.id as string)
   return {
     props: {
       postData,

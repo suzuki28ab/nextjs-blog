@@ -9,7 +9,7 @@ type allPostIds = {
   }
 }[]
 
-export async function getSortedPostsData(): Promise<sortedPostsData> {
+export async function getSortedPosts(): Promise<sortedPostsData> {
   const posts: sortedPostsData = []
   await db
     .collection('posts')
@@ -49,7 +49,7 @@ export async function getAllPostIds(): Promise<allPostIds> {
   })
 }
 
-export async function getPostData(id: string): Promise<FormattedPostData> {
+export async function getPostById(id: string): Promise<FormattedPostData> {
   const results = await db
     .collection('posts')
     .where('id', '==', id)
@@ -64,4 +64,40 @@ export async function getPostData(id: string): Promise<FormattedPostData> {
       return posts
     })
   return results[0]
+}
+
+export async function getPostsByCategoryName(categoryName: string): Promise<sortedPostsData> {
+  const posts: sortedPostsData = []
+  await db
+    .collection('posts')
+    .where('category', '==', categoryName)
+    .orderBy('createdAt', 'desc')
+    .get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        const post: PostData = doc.data() as PostData
+        post.createdAt = formatTimeStamp(post.createdAt)
+        posts.push(post)
+      })
+    })
+
+  return posts
+}
+
+export async function getPostsByTagName(tagName: string): Promise<sortedPostsData> {
+  const posts: sortedPostsData = []
+  await db
+    .collection('posts')
+    .where('tags', 'array-contains', tagName)
+    .orderBy('createdAt', 'desc')
+    .get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        const post: PostData = doc.data() as PostData
+        post.createdAt = formatTimeStamp(post.createdAt)
+        posts.push(post)
+      })
+    })
+
+  return posts
 }

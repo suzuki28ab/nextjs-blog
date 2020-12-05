@@ -1,5 +1,22 @@
+import Link from 'next/link'
+
 const Header = (): JSX.Element => {
-  return <header className="bg-green h-14"></header>
+  return (
+    <header className="bg-green h-14 px-2 flex justify-between">
+      <div className="flex justify-center items-center w-11/12">
+        <Link href="/">
+          <a>
+            <img src="/images/zukan.svg" />
+          </a>
+        </Link>
+      </div>
+      <div className="relative w-5">
+        <span className="absolute w-full h-1 bg-gray-600 top-5"></span>
+        <span className="absolute w-full h-1 bg-gray-600 top-7"></span>
+        <span className="absolute w-full h-1 bg-gray-600 top-9"></span>
+      </div>
+    </header>
+  )
 }
 
 export default Header

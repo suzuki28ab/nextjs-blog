@@ -3,12 +3,7 @@ import AppBar from './AppBar'
 
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
-  home?: boolean
-}): JSX.Element {
+export default function Layout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <div>
       <Head>

@@ -1,5 +1,6 @@
 import { FormattedPostData } from '@/types/post'
 import Link from 'next/link'
+import Tag from '../Tag'
 
 const PostTitle = ({ post }: { post: FormattedPostData }): JSX.Element => {
   return (
@@ -12,10 +13,8 @@ const PostTitle = ({ post }: { post: FormattedPostData }): JSX.Element => {
         <div>
           <h3 className="font-bold text-2xl">{post.title}</h3>
         </div>
-        {post.tags.map(tag => (
-          <span className="tag text-xs" key={tag}>
-            {tag}
-          </span>
+        {post.tags.map(tagName => (
+          <Tag name={tagName} key={tagName} />
         ))}
       </div>
     </Link>
