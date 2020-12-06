@@ -4,9 +4,8 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAllPostIds, getPostById } from '@/lib/posts'
 import { FormattedPostData } from '@/types/post'
 import PostTitle from '@/components/posts/title'
-import ReactMarkdown from 'react-markdown'
-import CodeBlock from '@/components/CodeBlock'
 import { useEffect } from 'react'
+import Article from '@/components/Article'
 
 type Props = {
   postData: FormattedPostData
@@ -28,9 +27,7 @@ export default function Post(props: Props): JSX.Element {
           <title>{props.postData.title}</title>
         </Head>
         <PostTitle post={props.postData}></PostTitle>
-        <article>
-          <ReactMarkdown renderers={{ code: CodeBlock }}>{props.postData.content}</ReactMarkdown>
-        </article>
+        <Article content={props.postData.content} />
       </Layout>
     </>
   )

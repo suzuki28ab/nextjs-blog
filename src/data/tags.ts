@@ -2,7 +2,7 @@ const tags = [
   { id: 'css', name: 'CSS' },
   { id: 'flutter', name: 'Flutter' },
   { id: 'html', name: 'HTML' },
-  { id: 'javascript', name: 'Javascript' },
+  { id: 'javascript', name: 'JavaScript' },
   { id: 'laravel', name: 'Laravel' },
   { id: 'php', name: 'PHP' },
   { id: 'vs-code', name: 'VS Code' },

@@ -6,14 +6,14 @@ const Header = (): JSX.Element => {
       <div className="flex justify-center items-center w-11/12">
         <Link href="/">
           <a>
-            <img src="/images/zukan.svg" />
+            <img src="/images/zukan.svg" alt="link to top" />
           </a>
         </Link>
       </div>
-      <div className="relative w-5">
-        <span className="absolute w-full h-1 bg-gray-600 top-5"></span>
-        <span className="absolute w-full h-1 bg-gray-600 top-7"></span>
-        <span className="absolute w-full h-1 bg-gray-600 top-9"></span>
+      <div className="lg:hidden relative w-5">
+        <span className="absolute w-full h-1 bg-gray-600 top-4"></span>
+        <span className="absolute w-full h-1 bg-gray-600 top-6"></span>
+        <span className="absolute w-full h-1 bg-gray-600 top-8"></span>
       </div>
     </header>
   )
