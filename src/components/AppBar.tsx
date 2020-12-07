@@ -5,7 +5,7 @@ const AppBar = (): JSX.Element => {
   return (
     <>
       <Header />
-      <SideBar />
+      <SideBar toggle={false} />
     </>
   )
 }
