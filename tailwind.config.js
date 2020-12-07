@@ -6,7 +6,8 @@ module.exports = {
         almost: 'calc(100% - 64px)',
       },
       colors: {
-        green: 'rgb(107, 173, 159)',
+        customGreen: 'rgb(107, 173, 159)',
+        customGray: 'rgb(245, 247, 246)',
       },
     },
   },

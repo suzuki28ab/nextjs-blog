@@ -3,9 +3,15 @@ import { tags } from '@/data/tags'
 import Link from 'next/link'
 import Tag from './Tag'
 
-const SideBar = (): JSX.Element => {
+const SideBar = ({ toggle }: { toggle: boolean }): JSX.Element => {
   return (
-    <nav className="hidden lg:block z-10 absolute top-14 left-auto right-0 h-full w-2/12 max-h-full">
+    <nav
+      className={
+        toggle
+          ? 'lg:hidden z-10 bg-customGray absolute top-14 left-auto right-0 w-6/12'
+          : 'hidden lg:block z-10 absolute top-14 left-auto right-0 w-2/12'
+      }
+    >
       <h3 className="text-gray-500 font-bold p-4">カテゴリー</h3>
       <ul className="text-sm">
         {categories.map(category => (

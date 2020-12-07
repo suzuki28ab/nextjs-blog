@@ -17,7 +17,7 @@ body {
   text-decoration: none;
   border-left: solid 4px rgb(63, 100, 93);
   color: #fff;
-  @apply bg-green;
+  @apply bg-customGreen;
 }
 
 @tailwind utilities;
