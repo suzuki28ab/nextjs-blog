@@ -46,3 +46,7 @@ article ul {
   padding-left: 40px;
   list-style-type: disc;
 }
+
+article img {
+  width: 60%;
+}

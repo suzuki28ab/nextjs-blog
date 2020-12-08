@@ -6,7 +6,7 @@ export const siteUrl = 'https://masopon.com/'
 
 export default function Layout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden lg:overflow-visible">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>{siteTitle}</title>

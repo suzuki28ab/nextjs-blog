@@ -11,7 +11,7 @@ const SideBar = ({ toggle }: { toggle: boolean }): JSX.Element => {
         toggle
           ? 'lg:hidden z-20 bg-customGray fixed top-0 h-full left-auto right-0 w-8/12 overflow-scroll ' +
             styles.toggled
-          : 'hidden lg:block z-20 absolute top-14 left-auto right-0 w-2/12'
+          : 'hidden lg:block z-20 absolute top-14 left-auto h-full right-0 w-2/12'
       }
     >
       <h3 className="text-gray-500 font-bold p-4">カテゴリー</h3>
