@@ -9,10 +9,6 @@ export default function Layout({ children }: { children: React.ReactNode }): JSX
     <div className="relative overflow-hidden">
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
-          rel="stylesheet"
-        ></link>
         <title>{siteTitle}</title>
         <meta name="description" content="エンジニアとしてのメモ帳兼ブログ" />
         <meta name="og:url" content={siteUrl} />
