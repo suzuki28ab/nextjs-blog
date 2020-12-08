@@ -2,14 +2,16 @@ import { categories } from '@/data/categories'
 import { tags } from '@/data/tags'
 import Link from 'next/link'
 import Tag from './Tag'
+import styles from './SideBar.module.css'
 
 const SideBar = ({ toggle }: { toggle: boolean }): JSX.Element => {
   return (
     <nav
       className={
         toggle
-          ? 'lg:hidden z-10 bg-customGray absolute top-14 left-auto right-0 w-6/12'
-          : 'hidden lg:block z-10 absolute top-14 left-auto right-0 w-2/12'
+          ? 'lg:hidden z-20 bg-customGray fixed top-0 h-full left-auto right-0 w-8/12 overflow-scroll ' +
+            styles.toggled
+          : 'hidden lg:block z-20 absolute top-14 left-auto right-0 w-2/12'
       }
     >
       <h3 className="text-gray-500 font-bold p-4">カテゴリー</h3>

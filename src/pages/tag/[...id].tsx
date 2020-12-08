@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '@/components/layout'
+import Layout from '@/components/layout'
 import { getPostsByTagName } from '@/lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { range, sliceForCurrentPage } from '@/lib/util'
@@ -21,9 +21,6 @@ type Props = {
 const TagPage = (props: Props): JSX.Element => {
   return (
     <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section>
         {props.posts.map(post => (
           <PostTitle post={post} key={post.id}></PostTitle>

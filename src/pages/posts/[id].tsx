@@ -1,4 +1,4 @@
-import Layout from '@/components/layout'
+import Layout, { siteUrl } from '@/components/layout'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAllPostIds, getPostById } from '@/lib/posts'
@@ -17,6 +17,7 @@ export default function Post(props: Props): JSX.Element {
     for (const aTag of Array.from(aTags)) {
       if (aTag.hostname != location.hostname) {
         aTag.setAttribute('target', '_blank')
+        aTag.setAttribute('rel', 'noopener')
       }
     }
   })
@@ -25,6 +26,8 @@ export default function Post(props: Props): JSX.Element {
       <Layout>
         <Head>
           <title>{props.postData.title}</title>
+          <meta name="og:type" content="article" />
+          <meta name="og:url" content={`${siteUrl}posts/${props.postData.id}`} />
         </Head>
         <PostTitle post={props.postData}></PostTitle>
         <Article content={props.postData.content} />

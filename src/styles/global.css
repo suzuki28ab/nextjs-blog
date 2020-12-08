@@ -3,8 +3,8 @@
 
 html,
 body {
-  font-family: 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo,
-    'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', 'Helvetica Neue',
+    HelveticaNeue, YuGothic, 'Yu Gothic Medium', 'Yu Gothic', Verdana, Meiryo, sans-serif;
   background-color: rgb(245, 247, 246);
   line-height: 1.6;
   font-size: 18px;

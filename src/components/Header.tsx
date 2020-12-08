@@ -1,9 +1,13 @@
 import Link from 'next/link'
-import { useState } from 'react'
-import SideBar from './SideBar'
+import { Dispatch, SetStateAction } from 'react'
 
-const Header = (): JSX.Element => {
-  const [toggleClass, setToggleClass] = useState(false)
+const Header = ({
+  setToggleClass,
+  toggleClass,
+}: {
+  setToggleClass: Dispatch<SetStateAction<boolean>>
+  toggleClass: boolean
+}): JSX.Element => {
   return (
     <>
       <header className="bg-customGreen h-14 px-2 flex justify-between">
@@ -20,7 +24,6 @@ const Header = (): JSX.Element => {
           <span className="absolute w-full h-1 bg-gray-600 top-8"></span>
         </div>
       </header>
-      <SideBar toggle={toggleClass} />
     </>
   )
 }
