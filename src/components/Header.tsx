@@ -14,7 +14,7 @@ const Header = ({
         <div className="flex justify-center items-center w-11/12">
           <Link href="/">
             <a>
-              <img src="/images/zukan.svg" alt="link to top" />
+              <img src="/images/zukan.svg" alt="link to top" width="352.5" height="17.45" />
             </a>
           </Link>
         </div>
