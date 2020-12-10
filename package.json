@@ -8,7 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@loadable/component": "^5.14.1",
     "@types/firebase": "^3.2.1",
+    "@types/loadable__component": "^5.13.1",
     "@types/react-syntax-highlighter": "^13.5.0",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",

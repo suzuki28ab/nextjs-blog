@@ -1,6 +1,7 @@
+import loadable from '@loadable/component'
 import styles from './Article.module.scss'
-import ReactMarkdown from 'react-markdown'
-import CodeBlock from './CodeBlock'
+const ReactMarkdown = loadable(() => import('react-markdown'))
+const CodeBlock = loadable(() => import('./CodeBlock'))
 
 const Article = ({ content }: { content: string }): JSX.Element => {
   return (
