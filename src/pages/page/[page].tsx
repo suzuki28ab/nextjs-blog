@@ -4,7 +4,7 @@ import { getSortedPosts } from '@/lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { range, sliceForCurrentPage } from '@/lib/util'
 import Pager from '@/components/Pager'
-import PostTitle from '@/components/posts/title'
+import PostTitle from '@/components/posts/Title'
 import { FormattedPostData } from '@/types/post'
 
 const COUNT_PER_PAGE = 10

@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getAllPostIds, getPostById } from '@/lib/posts'
 import { FormattedPostData } from '@/types/post'
-import PostTitle from '@/components/posts/title'
+import PostTitle from '@/components/posts/Title'
 import { useEffect } from 'react'
 import Article from '@/components/Article'
 

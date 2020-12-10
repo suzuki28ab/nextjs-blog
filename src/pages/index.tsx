@@ -1,10 +1,9 @@
-import Head from 'next/head'
 import Layout from '../components/layout'
 import { getSortedPosts } from '../lib/posts'
 import { GetStaticProps } from 'next'
 import Pager from '@/components/Pager'
 import { FormattedPostData } from '@/types/post'
-import PostTitle from '@/components/posts/title'
+import PostTitle from '@/components/posts/Title'
 import { sliceForCurrentPage } from '@/lib/util'
 
 const COUNT_PER_PAGE = 10

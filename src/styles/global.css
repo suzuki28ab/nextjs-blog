@@ -11,13 +11,4 @@ body {
   color: rgba(0, 0, 0, 0.87);
 }
 
-.tag {
-  margin: 3px;
-  padding: 3px 6px;
-  text-decoration: none;
-  border-left: solid 4px rgb(63, 100, 93);
-  color: #fff;
-  @apply bg-customGreen;
-}
-
 @tailwind utilities;

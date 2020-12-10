@@ -4,7 +4,7 @@ import { getPostsByTagName } from '@/lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { range, sliceForCurrentPage } from '@/lib/util'
 import Pager from '@/components/Pager'
-import PostTitle from '@/components/posts/title'
+import PostTitle from '@/components/posts/Title'
 import { FormattedPostData } from '@/types/post'
 import { getTagName, tags } from '@/data/tags'
 
