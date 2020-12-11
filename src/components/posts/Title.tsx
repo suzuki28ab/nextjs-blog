@@ -1,6 +1,6 @@
 import { FormattedPostData } from '@/types/post'
 import Link from 'next/link'
-import Tag from '../Tag'
+import Tag from '@/components/Tag'
 
 const PostTitle = ({ post }: { post: FormattedPostData }): JSX.Element => {
   return (
