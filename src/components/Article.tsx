@@ -8,7 +8,6 @@ const Article = ({ content }: { content: string }): JSX.Element => {
   return (
     <article className={styles.article}>
       <ReactMarkdown renderers={{ code: CodeBlock, image: ImageRenderer }}>{content}</ReactMarkdown>
-      ,
     </article>
   )
 }
